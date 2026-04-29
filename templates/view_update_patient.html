@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="text-center">View Patients</h3>
+
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for p in patients %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.age }}</td>
+            <td>{{ p.phone }}</td>
+            <td>{{ p.address }}</td>
+            <td>
+                <a href="/edit_patient/{{ p.id }}" class="btn btn-warning btn-sm">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
