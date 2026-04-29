@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>View & Update Tasks</h2>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Task Title</th>
+        <th>Description</th>
+        <th>Assigned Date</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.id }}</td>
+        <td>{{ task.task_title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.assigned_date }}</td>
+        <td>{{ task.status }}</td>
+        <td>
+            <a href="{{ url_for('edit_task', id=task.id) }}" class="btn btn-warning btn-sm">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

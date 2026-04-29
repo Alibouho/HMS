@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Edit Task</h2>
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Task Title</label>
+        <input type="text" name="task_title" class="form-control" value="{{ task.task_title }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Description</label>
+        <input type="text" name="description" class="form-control" value="{{ task.description }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Assigned Date</label>
+        <input type="date" name="assigned_date" class="form-control" value="{{ task.assigned_date }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Status</label>
+        <input type="text" name="status" class="form-control" value="{{ task.status }}">
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Task</button>
+    <a href="{{ url_for('view_update_task') }}" class="btn btn-secondary">Back</a>
+</form>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>View & Update Operational Bills</h2>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Bill Type</th>
+        <th>Amount</th>
+        <th>Bill Date</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+
+    {% for bill in bills %}
+    <tr>
+        <td>{{ bill.id }}</td>
+        <td>{{ bill.bill_type }}</td>
+        <td>{{ bill.amount }}</td>
+        <td>{{ bill.bill_date }}</td>
+        <td>{{ bill.description }}</td>
+        <td>
+            <a href="{{ url_for('edit_operational_bill', id=bill.id) }}" class="btn btn-warning btn-sm">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
