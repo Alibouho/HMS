@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <h1 class="text-center">View & Update Bed Page</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Bed Number</th>
+        <th>Ward</th>
+        <th>Bed Type</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for bed in beds %}
+    <tr>
+        <td>{{ bed.id }}</td>
+        <td>{{ bed.bed_number }}</td>
+        <td>{{ bed.ward }}</td>
+        <td>{{ bed.bed_type }}</td>
+        <td>{{ bed.status }}</td>
+        <td>
+            <a href="{{ url_for('bed.edit_bed', id=bed.id) }}" class="btn btn-warning btn-sm">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

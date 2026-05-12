@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <h1 class="text-center">Edit Bed Page</h1>
+</div>
+
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Bed Number</label>
+        <input type="text" name="bed_number" class="form-control" value="{{ bed.bed_number }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Ward</label>
+        <input type="text" name="ward" class="form-control" value="{{ bed.ward }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Bed Type</label>
+        <input type="text" name="bed_type" class="form-control" value="{{ bed.bed_type }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Status</label>
+        <input type="text" name="status" class="form-control" value="{{ bed.status }}">
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Bed</button>
+    <a href="{{ url_for('bed.view_update_bed') }}" class="btn btn-secondary">Back</a>
+</form>
+
+{% endblock %}

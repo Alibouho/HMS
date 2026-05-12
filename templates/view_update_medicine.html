@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <h1 class="text-center">View & Update Medicine Page</h1>
+</div>
+<form method="POST"></form>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Medicine Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Expiry Date</th>
+        <th>Action</th>
+    </tr>
+
+    {% for medicine in medicines %}
+    <tr>
+        <td>{{ medicine.id }}</td>
+        <td>{{ medicine.medicine_name }}</td>
+        <td>{{ medicine.category }}</td>
+        <td>{{ medicine.quantity }}</td>
+        <td>{{ medicine.price }}</td>
+        <td>{{ medicine.expiry_date }}</td>
+        <td>
+            <a href="{{ url_for('medicine.edit_medicine', id=medicine.id) }}" class="btn btn-warning btn-sm">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

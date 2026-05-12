@@ -2,7 +2,10 @@
 
 {% block content %}
 
-<h2>View & Update Operational Bills</h2>
+<div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <h1 class="text-center">View & Update Operational Bill Page</h1>
+</div>
+
 
 <table class="table table-bordered table-striped">
     <tr>
@@ -22,7 +25,7 @@
         <td>{{ bill.bill_date }}</td>
         <td>{{ bill.description }}</td>
         <td>
-            <a href="{{ url_for('edit_operational_bill', id=bill.id) }}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="{{ url_for('billing.edit_operational_bill', id=bill.id) }}" class="btn btn-warning btn-sm">Edit</a>
         </td>
     </tr>
     {% endfor %}

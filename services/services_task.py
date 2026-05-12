@@ -1,4 +1,4 @@
-from models.models_patient import db
+from models.db import db
 from models.models_task import Task
 
 def add_task_service(data):

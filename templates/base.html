@@ -5,60 +5,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HMS</title>
+
+    <style>
+        body {
+            background-color: #6c757d;
+        }
+
+        .header-box {
+            background-color: #cfe2ff;
+            border-radius: 5px;
+        }
+
+        .nav-box {
+            background-color: #cfe2ff;
+            border-radius: 5px;
+        }
+
+        .dropdown button {
+            font-weight: bold;
+            border-radius: 8px;
+            background-color: #cfe2ff;
+            border: 1px solid #000;
+            color: #000;
+            min-width: 150px;
+        }
+
+        .dropdown button:hover {
+            background-color: #b6d4fe;
+        }
+    </style>
 </head>
 
-<body class="bg-secondary">
+<body>
 
     <!-- Header -->
-    <div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <div class="container-fluid mt-2 p-3 header-box text-dark">
         <h1 class="text-center">Hospital Management System</h1>
     </div>
 
-    <!-- Navigation Buttons -->
-    <div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark d-flex gap-3">
+    <!-- Navigation -->
+    <div class="container-fluid mt-2 p-3 nav-box text-dark d-flex gap-3 flex-wrap justify-content-center">
 
         <!-- Patient -->
-        <div class="btn-group">
-            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
                 Patient
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('add_patient')}}">Add Patient</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('view_update_patient')}}">View & Update</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('patient.add_patient')}}">Add</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('patient.view_update_patient')}}">View</a></li>
+            </ul>
+        </div>
+
+        <!-- Employee -->
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                Employee
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('employee.add_employee')}}">Add</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('employee.view_update_employee')}}">View</a></li>
             </ul>
         </div>
 
         <!-- Task -->
-        <div class="btn-group">
-            <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
                 Task
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('add_task')}}">Add Task</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('view_update_task')}}">View & Update</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('task.add_task')}}">Add</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('task.view_update_task')}}">View</a></li>
+            </ul>
+        </div>
+
+        <!-- Attendance -->
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                Attendance
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('attendance.add_attendance')}}">Add</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('attendance.view_update_attendance')}}">View</a></li>
+            </ul>
+        </div>
+
+        <!-- Medicine -->
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                Medicine
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('medicine.add_medicine')}}">Add</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('medicine.view_update_medicine')}}">View</a></li>
+            </ul>
+        </div>
+
+        <!-- Bed -->
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                Bed
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('bed.add_bed')}}">Add</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('bed.view_update_bed')}}">View</a></li>
             </ul>
         </div>
 
         <!-- Billing -->
-        <div class="btn-group">
-            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
                 Billing
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('add_patient_bill')}}">Add Patient Bill</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('view_update_patient_bill')}}">View Patient Bills</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('add_operational_bill')}}">Add Operational Bill</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('view_update_operational_bill')}}">View Operational Bills</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('billing.add_patient_bill')}}">Patient</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('billing.view_update_patient_bill')}}">View</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('billing.add_operational_bill')}}">Operational</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('billing.view_update_operational_bill')}}">View</a></li>
             </ul>
         </div>
 
     </div>
 
-    <!-- Page Content -->
+    <!-- Content -->
     <div class="container mt-4">
-        {% block content %}
-        {% endblock %}
+
+    {% if page_title %}
+    <div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+        <h1 class="text-center">{{ page_title }}</h1>
     </div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 

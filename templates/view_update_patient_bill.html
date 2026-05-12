@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <h1 class="text-center">View & Update Patient Bill Page</h1>
+</div>
+<form method="POST"></form>
 
-<h2>Patient Bills</h2>
-
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
     <tr>
         <th>ID</th>
         <th>Amount</th>
-        <th>Date</th>
-        <th>Status</th>
+        <th>Bill Date</th>
+        <th>Payment Status</th>
+        <th>Action</th>
     </tr>
 
     {% for bill in bills %}
@@ -18,9 +21,11 @@
         <td>{{ bill.amount }}</td>
         <td>{{ bill.bill_date }}</td>
         <td>{{ bill.payment_status }}</td>
+        <td>
+            <a href="{{ url_for('billing.edit_patient_bill', id=bill.id) }}" class="btn btn-warning btn-sm">Edit</a>
+        </td>
     </tr>
     {% endfor %}
-
 </table>
 
 {% endblock %}

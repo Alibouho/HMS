@@ -1,4 +1,4 @@
-from models.models_patient import db
+from models.db import db
 from models.models_billing import PatientBill, OperationalBill
 
 def add_patient_bill_service(data):

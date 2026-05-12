@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <h1 class="text-center">Add Bed Page</h1>
+</div>
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Bed Number</label>
+        <input type="text" name="bed_number" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Ward</label>
+        <input type="text" name="ward" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Bed Type</label>
+        <input type="text" name="bed_type" class="form-control" placeholder="General / ICU / Emergency">
+    </div>
+
+    <div class="mb-3">
+        <label>Status</label>
+        <input type="text" name="status" class="form-control" placeholder="Available / Occupied">
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Bed</button>
+</form>
+
+{% endblock %}

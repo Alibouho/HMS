@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-2 p-3 bg-primary-subtle text-dark">
+    <h1 class="text-center">Edit Employee Page</h1>
+</div>
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Full Name</label>
+        <input type="text" name="full_name" class="form-control" value="{{ employee.full_name }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Role</label>
+        <input type="text" name="role" class="form-control" value="{{ employee.role }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Phone Number</label>
+        <input type="text" name="phone_number" class="form-control" value="{{ employee.phone_number }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" value="{{ employee.email }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Shift</label>
+        <input type="text" name="shift" class="form-control" value="{{ employee.shift }}">
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Employee</button>
+    <a href="{{ url_for('employee.view_update_employee') }}" class="btn btn-secondary">Back</a>
+</form>
+
+{% endblock %}

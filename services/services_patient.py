@@ -1,4 +1,5 @@
-from models.models_patient import db, Patient
+from models.db import db
+from models.models_patient import Patient
 
 def add_patient_service(data):
 

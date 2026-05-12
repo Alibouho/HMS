@@ -1,6 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from models.db import db
 
 class Patient(db.Model):
     id       =db.Column(db.Integer, primary_key=True)

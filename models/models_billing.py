@@ -1,4 +1,4 @@
-from models.models_patient import db
+from models.db import db
 
 class PatientBill(db.Model):
     id = db.Column(db.Integer, primary_key=True)
