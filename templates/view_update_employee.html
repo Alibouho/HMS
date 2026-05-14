@@ -9,10 +9,11 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Phone</th>
-                <th>Address</th>
+                <th>Full Name</th>
+                <th>Role</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Shift</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -21,10 +22,11 @@
             {% for p in employees %}
             <tr>
                 <td>{{ p.id }}</td>
-                <td>{{ p.name }}</td>
-                <td>{{ p.age }}</td>
-                <td>{{ p.phone }}</td>
-                <td>{{ p.address }}</td>
+                <td>{{ p.full_name }}</td>
+                <td>{{ p.role }}</td>
+                <td>{{ p.phone_number }}</td>
+                <td>{{ p.email }}</td>
+                <td>{{ p.shift }}</td>
                 <td>
                     <a href="/edit_employee/{{ p.id }}" class="btn btn-warning btn-sm">Edit</a>
                 </td>

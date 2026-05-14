@@ -17,7 +17,7 @@ def add_patient():
             "address": request.form["address"]
         }
         add_patient_service(data)
-        return redirect(url_for('view_update_patient'))
+        return redirect(url_for('patient.view_update_patient'))
     return render_template("add_patient.html")
 
 
@@ -35,5 +35,5 @@ def edit_patient(id):
         patient.phone = request.form["phone"]
         patient.address = request.form["address"]
         db.session.commit()
-        return redirect(url_for('view_update_patient'))
+        return redirect(url_for('patient.view_update_patient'))
     return render_template("edit_patient.html", patient=patient)
