@@ -9,6 +9,7 @@
 <table class="table table-bordered table-striped">
     <tr>
         <th>ID</th>
+        <th>Employee</th>
         <th>Date</th>
         <th>Check In</th>
         <th>Check Out</th>
@@ -19,6 +20,7 @@
     {% for attendance in attendances %}
     <tr>
         <td>{{ attendance.id }}</td>
+        <td>{{ attendance.employee.full_name if attendance.employee else '—' }}</td>
         <td>{{ attendance.date }}</td>
         <td>{{ attendance.check_in_time }}</td>
         <td>{{ attendance.check_out_time }}</td>

@@ -24,8 +24,22 @@
     </div>
 
     <div class="mb-3">
+        <label>Employee</label>
+        <select name="employee_id" class="form-control" required>
+            <option value="" disabled {% if not attendance.employee_id %}selected{% endif %}>Select employee</option>
+            {% for employee in employees %}
+            <option value="{{ employee.id }}" {% if attendance.employee_id == employee.id %}selected{% endif %}>{{ employee.full_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
         <label>Status</label>
-        <input type="text" name="status" class="form-control" value="{{ attendance.status }}">
+        <select name="status" class="form-control" required>
+            <option value="Present" {% if attendance.status == 'Present' %}selected{% endif %}>Present</option>
+            <option value="Absent" {% if attendance.status == 'Absent' %}selected{% endif %}>Absent</option>
+            <option value="Late" {% if attendance.status == 'Late' %}selected{% endif %}>Late</option>
+        </select>
     </div>
 
     <button type="submit" class="btn btn-success">Update Attendance</button>
