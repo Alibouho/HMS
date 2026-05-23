@@ -14,7 +14,6 @@ def add_employee():
             "role": request.form["role"],
             "phone_number": request.form["phone_number"],
             "email": request.form["email"],
-            "shift": request.form["shift"]
         }
         add_employee_service(data)
         return redirect(url_for('employee.view_update_employee'))
@@ -32,7 +31,6 @@ def edit_employee(id):
         employee.role = request.form["role"]
         employee.phone_number = request.form["phone_number"]
         employee.email = request.form["email"]
-        employee.shift = request.form["shift"]
         db.session.commit()
         return redirect(url_for('employee.view_update_employee'))
     return render_template("edit_employee.html", employee=employee)

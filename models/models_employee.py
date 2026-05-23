@@ -6,4 +6,3 @@ class Employee(db.Model):
     role = db.Column(db.String(100))
     phone_number = db.Column(db.String(50))
     email = db.Column(db.String(100))
-    shift = db.Column(db.String(50))

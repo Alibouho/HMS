@@ -7,7 +7,6 @@ def add_employee_service(data):
         role=data["role"],
         phone_number=data["phone_number"],
         email=data["email"],
-        shift=data["shift"]
     )
 
     db.session.add(employee)

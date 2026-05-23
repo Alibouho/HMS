@@ -27,11 +27,6 @@
         <input type="email" name="email" class="form-control" value="{{ employee.email }}">
     </div>
 
-    <div class="mb-3">
-        <label>Shift</label>
-        <input type="text" name="shift" class="form-control" value="{{ employee.shift }}">
-    </div>
-
     <button type="submit" class="btn btn-success">Update Employee</button>
     <a href="{{ url_for('employee.view_update_employee') }}" class="btn btn-secondary">Back</a>
 </form>
